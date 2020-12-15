@@ -6,7 +6,7 @@ class PaymentService {
       prod: {},
       test: {
         access_token:
-          "APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398"
+          "APP_USR-8208253118659647-112521-dd670f3fd6aa9147df51117701a2082e-677408439"
       }
     };
     this.mercadoPagoUrl = "https://api.mercadopago.com/checkout";
@@ -23,32 +23,32 @@ class PaymentService {
         picture_url: "https://courseit.com.ar/static/logo.png",
         category_id: "1234",
         quantity: parseInt(unit),
-        currency_id: "ARS",
+        currency_id: "PEN",
         unit_price: parseFloat(price)
       }
     ];
 
     const preferences = {
       items,
-      external_reference: "nicolascastrogarcia@gmail.com",
+      external_reference: "manuelfernandolazatequintero1@gmail.com",
       payer: {
         name: "Lalo",
         surname: "Landa",
-        email: "test_user_63274575@testuser.com",
+        email: "test_user_46542185@testuser.com",
         phone: {
-          area_code: "11",
-          number: "22223333"
+          area_code: "52",
+          number: "5549737300"
         },
         address: {
-          zip_code: "1111",
-          street_name: "False",
-          street_number: "123"
+          zip_code: "03940",
+          street_name: "Insurgentes Sur",
+          street_number: "1602"
         }
       },
       payment_methods: {
         excluded_payment_methods: [
           {
-            id: "amex"
+            id: "diners"
           }
         ],
         excluded_payment_types: [{ id: "atm" }],
@@ -56,11 +56,11 @@ class PaymentService {
         default_installments: 6
       },
       back_urls: {
-        success: "https://mercadopago-checkout.herokuapp.com/success",
-        pending: "https://mercadopago-checkout.herokuapp.com/pending",
-        failure: "https://mercadopago-checkout.herokuapp.com/error"
+        success: "https://manuelalzate-mp-ecommerce-node.herokuapp.com/success",
+        pending: "https://manuelalzate-mp-ecommerce-node.herokuapp.com/pending",
+        failure: "https://manuelalzate-mp-ecommerce-node.herokuapp.com/error"
       },
-      notification_url: "https://mercadopago-checkout.herokuapp.com/webhook",
+      notification_url: "https://manuelalzate-mp-ecommerce-node.herokuapp.com/webhook",
       auto_return: "approved"
     };
 
@@ -68,7 +68,7 @@ class PaymentService {
       const request = await axios.post(url, preferences, {
         headers: {
           "Content-Type": "application/json",
-          "x-integrator-id": "dev_24c65fb163bf11ea96500242ac130004"
+          "x-integrator-id": "dev_2e4ad5dd362f11eb809d0242ac130004"
         }
       });
       return request.data;
